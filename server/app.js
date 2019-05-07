@@ -9,10 +9,13 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const jwt = require('jsonwebtoken')
 const GoogleStrategy = require('passport-google-oauth20');
+require('dotenv').config();
+
+console.log(process.env.clientID);
 
 passport.use(new GoogleStrategy({
-    clientID: '839858628910-gcl2hjih9vacbhopd60thr28evmvt14o.apps.googleusercontent.com',
-    clientSecret: 'DfYz9n-d3SSPFaxo-6K6ltaa',
+    clientID: process.env.clientID,
+    clientSecret: process.env.clientSecret,
     callbackURL: 'http://localhost:4000/auth/google/redirect',
 
 },
